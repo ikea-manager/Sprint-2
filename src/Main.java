@@ -7,7 +7,7 @@ public class Main {
         MonthlyReport reportJan21 = new MonthlyReport("resources/m.202101.csv");
         MonthlyReport reportFeb21 = new MonthlyReport("resources/m.202102.csv");
         MonthlyReport reportMar21 = new MonthlyReport("resources/m.202103.csv");
-        System.out.println(reportJan21.records);
+        System.out.println(report21.records);
         Scanner scanner = new Scanner(System.in);
 
 
