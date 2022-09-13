@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 
     public class MonthlyReport {
+
+
         public ArrayList<MonthlyLineRecord> records = new ArrayList<>();
 
         public MonthlyReport(String path) {
@@ -30,8 +32,9 @@ import java.util.ArrayList;
                 return null;
             }
         }
+        public void reconciliationOfReports() {
 
-
+        }
 
     }
 

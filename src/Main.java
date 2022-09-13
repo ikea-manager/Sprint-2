@@ -7,8 +7,10 @@ public class Main {
         MonthlyReport reportJan21 = new MonthlyReport("resources/m.202101.csv");
         MonthlyReport reportFeb21 = new MonthlyReport("resources/m.202102.csv");
         MonthlyReport reportMar21 = new MonthlyReport("resources/m.202103.csv");
-
+        System.out.println(reportJan21.records);
         Scanner scanner = new Scanner(System.in);
+
+
 
 
         while (true) {
@@ -20,7 +22,7 @@ public class Main {
             } else if (command == 2) {
 
             } else if (command == 3) {
-
+               // MonthlyReport.reconciliationOfReports();
             } else if (command == 4) {
 
             } else if (command == 5) {
