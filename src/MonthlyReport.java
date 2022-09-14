@@ -32,9 +32,13 @@ import java.util.ArrayList;
                 return null;
             }
         }
-        public void reconciliationOfReports() {
 
-        }
+        public static void reconciliationOfReports() {
+            //if (reportJan21.records.get(0).itemName){
+
+            }
+
+
 
     }
 
