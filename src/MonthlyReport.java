@@ -34,7 +34,7 @@ import java.util.ArrayList;
         }
 
         public static void reconciliationOfReports() {
-           // System.out.println(reportJan21.records.get(1).itemName);
+           System.out.println(report21.records.get(1).itemName);
 
             }
     }

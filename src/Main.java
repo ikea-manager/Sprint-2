@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
-
+    YearReport report21 = new YearReport("resources/y.2021.csv");
     public static void main(String[] args) {
-        YearReport report21 = new YearReport("resources/y.2021.csv");
+
         MonthlyReport reportJan21 = new MonthlyReport("resources/m.202101.csv");
         MonthlyReport reportFeb21 = new MonthlyReport("resources/m.202102.csv");
         MonthlyReport reportMar21 = new MonthlyReport("resources/m.202103.csv");
