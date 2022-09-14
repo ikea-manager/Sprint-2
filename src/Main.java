@@ -46,7 +46,10 @@ public class Main {
         System.out.println("5 - Вывести информацию о годовом отчёте");
         System.out.println("0 - Выход");
     }
+    public static void reconciliationOfReports() {
+        System.out.println(report21.records.get(1).month);
 
+    }
 
 
 }

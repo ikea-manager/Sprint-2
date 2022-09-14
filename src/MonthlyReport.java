@@ -33,10 +33,7 @@ import java.util.ArrayList;
             }
         }
 
-        public static void reconciliationOfReports() {
-           System.out.println(report21.records.get(1).itemName);
 
-            }
     }
 
 
