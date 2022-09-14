@@ -34,12 +34,9 @@ import java.util.ArrayList;
         }
 
         public static void reconciliationOfReports() {
-            //if (reportJan21.records.get(0).itemName){
+           // System.out.println(reportJan21.records.get(1).itemName);
 
             }
-
-
-
     }
 
 
