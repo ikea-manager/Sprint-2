@@ -8,23 +8,28 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             printMenu();
             int command = scanner.nextInt();
 
             if (command == 1) {
-
+                YearReport report21 = new YearReport("resources/y.2021.csv");
             } else if (command == 2) {
 
             } else if (command == 3) {
-                new Main().reconciliationOfReports();
+                if(!(new Main().read())) {
+                    new Main().reconciliationOfReports();
+                } else System.out.println("Считайте сначала отчеты");
             } else if (command == 4) {
-                new Main().print01();
-                new Main().print02();
-                new Main().print03();
+                if (!(new Main().read())) {
+                    new Main().print01();
+                    new Main().print02();
+                    new Main().print03();
+                } else System.out.println("Считайте сначала отчеты");
             } else if (command == 5) {
-                new Main().printAll2021();
+                if (!(new Main().read())) {
+                    new Main().printAll2021();
+                } else System.out.println("Считайте сначала отчеты");
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
@@ -143,6 +148,15 @@ public class Main {
         average = (report21m01.sumExpense() + report21m02.sumExpense() + report21m03.sumExpense())/3;
         return average;
     }
+
+    boolean read(){
+        boolean result = true;
+        if (report21.records.isEmpty()){
+            result = false;
+        }
+        return  result;
+    }
+
 
 
 

@@ -2,18 +2,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-//import java.util.HashMap;
 
 
 public class MonthlyReport {
 
 
         public ArrayList<MonthlyLineRecord> records = new ArrayList<>();
-        //public HashMap<String, ArrayList<MonthlyLineRecord>> record = new HashMap<>();
 
         public MonthlyReport(String path) {
-            String content = readFileContentsOrNull(path); // \n
-            String[] lines = content.split("\r?\n"); //
+            String content = readFileContentsOrNull(path);
+            String[] lines = content.split("\r?\n");
             for (int i = 1; i < lines.length; i++) {
                 String line = lines[i]; // "02,14000,true"
                 String[] parts = line.split(","); // ["02", "14000", "true"]
