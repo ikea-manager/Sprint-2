@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     YearReport report21 = new YearReport("resources/y.2021.csv");
-    MonthlyReport reportJan21 = new MonthlyReport("resources/m.202101.csv");
-    MonthlyReport reportFeb21 = new MonthlyReport("resources/m.202102.csv");
-    MonthlyReport reportMar21 = new MonthlyReport("resources/m.202103.csv");
+    MonthlyReport report21m01 = new MonthlyReport("resources/m.202101.csv");
+    MonthlyReport report21m02 = new MonthlyReport("resources/m.202102.csv");
+    MonthlyReport report21m03 = new MonthlyReport("resources/m.202103.csv");
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -20,7 +20,9 @@ public class Main {
             } else if (command == 3) {
                 new Main().reconciliationOfReports();
             } else if (command == 4) {
-
+                new Main().print01();
+                new Main().print02();
+                new Main().print03();
             } else if (command == 5) {
 
             } else if (command == 0) {
@@ -50,33 +52,33 @@ public class Main {
         for (int i = 0; i < report21.records.size(); i++) {
             if (report21.records.get(i).Expense) {
                 if (report21.records.get(i).month == 1) {
-                    if (report21.records.get(i).amount == reportJan21.sumExpense()) {
+                    if (report21.records.get(i).amount == report21m01.sumExpense()) {
                         System.out.println("Сверка расходов за январь месяц прошла успешно");
                     } else System.out.println("Сверка расходов за январь месяц не прошла");
                 }
                 if (report21.records.get(i).month == 2) {
-                    if (report21.records.get(i).amount == reportFeb21.sumExpense()) {
+                    if (report21.records.get(i).amount == report21m02.sumExpense()) {
                         System.out.println("Сверка расходов за февраль месяц прошла успешно");
                     } else System.out.println("Сверка расходов за февраль месяц не прошла");
                 }
                 if (report21.records.get(i).month == 3) {
-                    if (report21.records.get(i).amount == reportMar21.sumExpense()) {
+                    if (report21.records.get(i).amount == report21m03.sumExpense()) {
                         System.out.println("Сверка расходов за март месяц прошла успешно");
                     } else System.out.println("Сверка расходов за март месяц не прошла");
                 }
             } else {
                 if (report21.records.get(i).month == 1) {
-                    if (report21.records.get(i).amount == reportJan21.sumNonExpense()) {
+                    if (report21.records.get(i).amount == report21m01.sumNonExpense()) {
                         System.out.println("Сверка доходов за январь месяц прошла успешно");
                     } else System.out.println("Сверка доходов за январь месяц не прошла");
                 }
                 if (report21.records.get(i).month == 2) {
-                    if (report21.records.get(i).amount == reportFeb21.sumNonExpense()) {
+                    if (report21.records.get(i).amount == report21m02.sumNonExpense()) {
                         System.out.println("Сверка доходов за февраль месяц прошла успешно");
                     } else System.out.println("Сверка доходов за февраль месяц не прошла");
                 }
                 if (report21.records.get(i).month == 3) {
-                    if (report21.records.get(i).amount == reportMar21.sumNonExpense()) {
+                    if (report21.records.get(i).amount == report21m03.sumNonExpense()) {
                         System.out.println("Сверка доходов за март месяц прошла успешно");
                     } else System.out.println("Сверка доходов за март месяц не прошла");
                 }
@@ -84,6 +86,43 @@ public class Main {
 
         }
     }
+
+    public void printAll() {
+
+
+    }
+
+    public void print01() {
+        System.out.println("Январь");
+        for (int i = 0; i < report21m01.records.size(); i++) {
+            if (report21m01.findMax() == (report21m01.records.get(i).quantity * report21m01.records.get(i).sumOfOne)) {
+                System.out.println("Самый прибыльный товар " + report21m01.records.get(i).itemName);
+                System.out.println("С доходом равным " + report21m01.findMax());
+            }
+        }
+    }
+
+    public void print02() {
+        System.out.println("Февраль");
+        for (int i = 0; i < report21m02.records.size(); i++) {
+            if (report21m02.findMax() == (report21m02.records.get(i).quantity * report21m02.records.get(i).sumOfOne)) {
+                System.out.println("Самый прибыльный товар " + report21m02.records.get(i).itemName);
+                System.out.println("С доходом равным " + report21m02.findMax());
+            }
+        }
+    }
+
+    public void print03() {
+        System.out.println("Март");
+        for (int i = 0; i < report21m03.records.size(); i++) {
+            if (report21m03.findMax() == (report21m03.records.get(i).quantity * report21m03.records.get(i).sumOfOne)) {
+                System.out.println("Самый прибыльный товар " + report21m03.records.get(i).itemName);
+                System.out.println("С доходом равным " + report21m03.findMax());
+            }
+        }
+    }
+
+
 
 
 
