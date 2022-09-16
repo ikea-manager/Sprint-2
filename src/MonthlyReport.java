@@ -37,23 +37,23 @@ public class MonthlyReport {
             }
         }
 
-        int sumExpense () {
+        public int sumExpense () {
             int result = 0;
             for (int i = 0; i < records.size(); i++) {
                 if (records.get(i).isExpense){
                     int sum = 0;
-                    records.get(i).sumOfOne * records.get(i).quantity = sum;
+                    sum = records.get(i).sumOfOne * records.get(i).quantity;
                    result += sum;
                 }
             }
             return result;
         }
-        int sumNonExpense () {
+        public int sumNonExpense () {
             int result = 0;
             for (int i = 0; i < records.size(); i++) {
                 if (!(records.get(i).isExpense)){
                     int sum = 0;
-                    records.get(i).sumOfOne * records.get(i).quantity = sum;
+                   sum = records.get(i).sumOfOne * records.get(i).quantity;
                     result += sum;
                 }
             }

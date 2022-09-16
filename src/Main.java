@@ -47,9 +47,43 @@ public class Main {
         System.out.println("0 - Выход");
     }
     public void reconciliationOfReports() {
-        System.out.println(reportJan21.records.get(1).sumOfOne);
-    }
+        for (int i = 0; i < report21.records.size(); i++) {
+            if (report21.records.get(i).Expense) {
+                if (report21.records.get(i).month == 1) {
+                    if (report21.records.get(i).amount == reportJan21.sumExpense()) {
+                        System.out.println("Сверка расходов за январь месяц прошла успешно");
+                    } else System.out.println("Сверка расходов за январь месяц не прошла");
+                }
+                if (report21.records.get(i).month == 2) {
+                    if (report21.records.get(i).amount == reportFeb21.sumExpense()) {
+                        System.out.println("Сверка расходов за февраль месяц прошла успешно");
+                    } else System.out.println("Сверка расходов за февраль месяц не прошла");
+                }
+                if (report21.records.get(i).month == 3) {
+                    if (report21.records.get(i).amount == reportMar21.sumExpense()) {
+                        System.out.println("Сверка расходов за март месяц прошла успешно");
+                    } else System.out.println("Сверка расходов за март месяц не прошла");
+                }
+            } else {
+                if (report21.records.get(i).month == 1) {
+                    if (report21.records.get(i).amount == reportJan21.sumNonExpense()) {
+                        System.out.println("Сверка доходов за январь месяц прошла успешно");
+                    } else System.out.println("Сверка доходов за январь месяц не прошла");
+                }
+                if (report21.records.get(i).month == 2) {
+                    if (report21.records.get(i).amount == reportFeb21.sumNonExpense()) {
+                        System.out.println("Сверка доходов за февраль месяц прошла успешно");
+                    } else System.out.println("Сверка доходов за февраль месяц не прошла");
+                }
+                if (report21.records.get(i).month == 3) {
+                    if (report21.records.get(i).amount == reportMar21.sumNonExpense()) {
+                        System.out.println("Сверка доходов за март месяц прошла успешно");
+                    } else System.out.println("Сверка доходов за март месяц не прошла");
+                }
+            }
 
+        }
+    }
 
 
 
