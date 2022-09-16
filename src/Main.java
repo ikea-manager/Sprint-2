@@ -1,10 +1,13 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    YearReport report21 = new YearReport("resources/y.2021.csv");
-    MonthlyReport report21m01 = new MonthlyReport("resources/m.202101.csv");
-    MonthlyReport report21m02 = new MonthlyReport("resources/m.202102.csv");
-    MonthlyReport report21m03 = new MonthlyReport("resources/m.202103.csv");
+    ArrayList<String> month = new ArrayList<>();
+    YearReport report21 = new YearReport();
+    MonthlyReport report21m01 = new MonthlyReport();//("resources/m.202101.csv");
+    MonthlyReport report21m02 = new MonthlyReport();//("resources/m.202102.csv");
+    MonthlyReport report21m03 = new MonthlyReport();//("resources/m.202103.csv");
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -13,21 +16,21 @@ public class Main {
             int command = scanner.nextInt();
 
             if (command == 1) {
-                YearReport report21 = new YearReport("resources/y.2021.csv");
+                new Main().readMonth();
             } else if (command == 2) {
-
+                new Main().readYear();
             } else if (command == 3) {
-                if(!(new Main().read())) {
+                if(!(new Main().readable())) {
                     new Main().reconciliationOfReports();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 4) {
-                if (!(new Main().read())) {
+                if (!(new Main().readable())) {
                     new Main().print01();
                     new Main().print02();
                     new Main().print03();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 5) {
-                if (!(new Main().read())) {
+                if (!(new Main().readable())) {
                     new Main().printAll2021();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 0) {
@@ -149,18 +152,33 @@ public class Main {
         return average;
     }
 
-    boolean read(){
+    boolean readable(){
         boolean result = true;
         if (report21.records.isEmpty()){
             result = false;
         }
         return  result;
     }
+    
+    public void readYear(){
+        report21.yearReport("resources/y.2021.csv");
+    }
 
+    public void readMonth() {
+        /*String mon = "";
+        ArrayList<String> month = new ArrayList<>();
+        ArrayList<String> numberOfMonth = new ArrayList<>();
+        for (int i = 1; i < 4; i++) {
+            mon = ("resources/m.20210" + i + ".csv");
+            month.add(mon);
+            numberOfMonth.add(month.get(i-1));
+            }
+        */
 
-
-
-
+        report21m01.monthlyReport("resources/m.202101.csv");
+        report21m02.monthlyReport("resources/m.202102.csv");
+        report21m03.monthlyReport("resources/m.202103.csv");
+    }
 
 }
 

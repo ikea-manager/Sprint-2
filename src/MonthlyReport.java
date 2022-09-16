@@ -9,7 +9,7 @@ public class MonthlyReport {
 
         public ArrayList<MonthlyLineRecord> records = new ArrayList<>();
 
-        public MonthlyReport(String path) {
+        public void monthlyReport(String path) {
             String content = readFileContentsOrNull(path);
             String[] lines = content.split("\r?\n");
             for (int i = 1; i < lines.length; i++) {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class YearReport {
     public ArrayList<YearlyLineRecord> records = new ArrayList<>();
 
-    public YearReport(String path) {
+    public void yearReport(String path) {
         String content = readFileContentsOrNull(path); // \n
         String[] lines = content.split("\r?\n"); //
         for (int i = 1; i < lines.length; i++) {
