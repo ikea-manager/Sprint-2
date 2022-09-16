@@ -24,7 +24,7 @@ public class Main {
                 new Main().print02();
                 new Main().print03();
             } else if (command == 5) {
-
+                new Main().printAll2021();
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
@@ -87,8 +87,19 @@ public class Main {
         }
     }
 
-    public void printAll() {
+    public void printAll2021() {
+        System.out.println("Доходность в 2021 году:");
+        System.out.println("Январь");
+        report21m01.profitability();
 
+        System.out.println("Февраль");
+        report21m02.profitability();
+
+        System.out.println("Март");
+        report21m03.profitability();
+
+        System.out.println("Средний доход в этом году составил: " + averagePlus());
+        System.out.println("Средние расходы в этом году составили: " + averageMinus());
 
     }
 
@@ -120,6 +131,17 @@ public class Main {
                 System.out.println("С доходом равным " + report21m03.findMax());
             }
         }
+    }
+
+    int averagePlus(){
+        int average = 0;
+        average = (report21m01.sumNonExpense() + report21m02.sumNonExpense() + report21m03.sumNonExpense())/3;
+        return average;
+    }
+    int averageMinus(){
+        int average = 0;
+        average = (report21m01.sumExpense() + report21m02.sumExpense() + report21m03.sumExpense())/3;
+        return average;
     }
 
 

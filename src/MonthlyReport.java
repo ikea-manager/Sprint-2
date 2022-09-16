@@ -72,6 +72,18 @@ public class MonthlyReport {
             return maxExpense;
         }
 
+        public int profitability(){
+            int result = 0;
+            if (sumExpense() > sumNonExpense()){
+                result = sumExpense() - sumNonExpense();
+                System.out.println("Этот месяц был убыточным на " + result);
+            } else {
+                result = sumNonExpense()-sumExpense();
+                System.out.println("Этот месяц был прибыльным на " + result);
+            }
+            return result;
+        }
+
 
     }
 
