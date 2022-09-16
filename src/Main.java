@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Main {
-   // ArrayList<String> month = new ArrayList<>();
     YearReport report21 = new YearReport();
     MonthlyReport report21m01 = new MonthlyReport();//("resources/m.202101.csv");
     MonthlyReport report21m02 = new MonthlyReport();//("resources/m.202102.csv");
@@ -151,10 +150,6 @@ public class Main {
         average = (report21m01.sumExpense() + report21m02.sumExpense() + report21m03.sumExpense())/3;
         return average;
     }
-
-
-
-
 
 }
 
