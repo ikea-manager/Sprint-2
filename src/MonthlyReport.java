@@ -39,9 +39,9 @@ public class MonthlyReport {
 
         int sumExpense () {
             int result = 0;
-            int sum = 0;
             for (int i = 0; i < records.size(); i++) {
                 if (records.get(i).isExpense){
+                    int sum = 0;
                     records.get(i).sumOfOne * records.get(i).quantity = sum;
                    result += sum;
                 }
@@ -50,29 +50,15 @@ public class MonthlyReport {
         }
         int sumNonExpense () {
             int result = 0;
-            int sum = 0;
             for (int i = 0; i < records.size(); i++) {
                 if (!(records.get(i).isExpense)){
-                records.get(i).sumOfOne * records.get(i).quantity = sum;
-                result += sum;
+                    int sum = 0;
+                    records.get(i).sumOfOne * records.get(i).quantity = sum;
+                    result += sum;
                 }
             }
             return result;
         }
-
-        /*double getExpensesSum() { // Напишите метод для получения суммы всех трат
-            double result = 0;
-            for (ArrayList<Double> exp : expensesByCategories.values()){
-                for (Double expense : exp ) {
-                    result += expense;
-                }
-
-            }
-            return result;
-
-        }*/
-
-
 
     }
 

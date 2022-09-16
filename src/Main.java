@@ -47,12 +47,10 @@ public class Main {
         System.out.println("0 - Выход");
     }
     public void reconciliationOfReports() {
-        System.out.println(report21.records.get(1).month);
-
-
-
-
+        System.out.println(reportJan21.records.get(1).sumOfOne);
     }
+
+
 
 
 }
