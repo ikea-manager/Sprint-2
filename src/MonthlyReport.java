@@ -2,12 +2,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+//import java.util.HashMap;
 
 
-    public class MonthlyReport {
+public class MonthlyReport {
 
 
         public ArrayList<MonthlyLineRecord> records = new ArrayList<>();
+        //public HashMap<String, ArrayList<MonthlyLineRecord>> record = new HashMap<>();
 
         public MonthlyReport(String path) {
             String content = readFileContentsOrNull(path); // \n
@@ -22,6 +24,8 @@ import java.util.ArrayList;
                 MonthlyLineRecord record = new MonthlyLineRecord(itemName, isExpense, quantity, sumOfOne);
                 records.add(record);
             }
+
+
         }
 
         private String readFileContentsOrNull(String path) {
@@ -32,6 +36,42 @@ import java.util.ArrayList;
                 return null;
             }
         }
+
+        int sumExpense () {
+            int result = 0;
+            int sum = 0;
+            for (int i = 0; i < records.size(); i++) {
+                if (records.get(i).isExpense){
+                    records.get(i).sumOfOne * records.get(i).quantity = sum;
+                   result += sum;
+                }
+            }
+            return result;
+        }
+        int sumNonExpense () {
+            int result = 0;
+            int sum = 0;
+            for (int i = 0; i < records.size(); i++) {
+                if (!(records.get(i).isExpense)){
+                records.get(i).sumOfOne * records.get(i).quantity = sum;
+                result += sum;
+                }
+            }
+            return result;
+        }
+
+        /*double getExpensesSum() { // Напишите метод для получения суммы всех трат
+            double result = 0;
+            for (ArrayList<Double> exp : expensesByCategories.values()){
+                for (Double expense : exp ) {
+                    result += expense;
+                }
+
+            }
+            return result;
+
+        }*/
+
 
 
     }

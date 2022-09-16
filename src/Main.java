@@ -7,7 +7,6 @@ public class Main {
     MonthlyReport reportMar21 = new MonthlyReport("resources/m.202103.csv");
     public static void main(String[] args) {
 
-
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -15,11 +14,11 @@ public class Main {
             int command = scanner.nextInt();
 
             if (command == 1) {
-                //System.out.println(reportJan21.records.get(1).itemName);
+
             } else if (command == 2) {
 
             } else if (command == 3) {
-
+                new Main().reconciliationOfReports();
             } else if (command == 4) {
 
             } else if (command == 5) {
@@ -47,8 +46,11 @@ public class Main {
         System.out.println("5 - Вывести информацию о годовом отчёте");
         System.out.println("0 - Выход");
     }
-    public static void reconciliationOfReports() {
+    public void reconciliationOfReports() {
         System.out.println(report21.records.get(1).month);
+
+
+
 
     }
 
