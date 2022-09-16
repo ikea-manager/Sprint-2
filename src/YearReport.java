@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class YearReport {
-    public ArrayList<YearlyLineRecord> records = new ArrayList<>();
+    public ArrayList<YearlyLineRecord> record = new ArrayList<>();
 
     public void yearReport(String path) {
         String content = readFileContentsOrNull(path); // \n
@@ -16,7 +16,7 @@ public class YearReport {
             int amount = Integer.parseInt(parts[1]);
             boolean isExpense = Boolean.parseBoolean(parts[2]);
             YearlyLineRecord record = new YearlyLineRecord(month, amount, isExpense);
-            records.add(record);
+            this.record.add(record);
         }
     }
 
