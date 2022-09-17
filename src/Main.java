@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
-    YearReport report21 = new YearReport();
-    MonthlyReport report21m01 = new MonthlyReport();//("resources/m.202101.csv");
-    MonthlyReport report21m02 = new MonthlyReport();//("resources/m.202102.csv");
-    MonthlyReport report21m03 = new MonthlyReport();//("resources/m.202103.csv");
+    static YearReport report21 = new YearReport();
+    static MonthlyReport report21m01 = new MonthlyReport();//("resources/m.202101.csv");
+    static MonthlyReport report21m02 = new MonthlyReport();//("resources/m.202102.csv");
+    static MonthlyReport report21m03 = new MonthlyReport();//("resources/m.202103.csv");
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -13,23 +13,21 @@ public class Main {
             int command = scanner.nextInt();
 
             if (command == 1) {
-                new Main().report21m01.monthlyReport("resources/m.202101.csv");
-                new Main().report21m02.monthlyReport("resources/m.202102.csv");
-                new Main().report21m03.monthlyReport("resources/m.202103.csv");
+                new Main().monthRead();
             } else if (command == 2) {
-                new Main().report21.yearReport("resources/y.2021.csv");
+                new Main().yearRead();
             } else if (command == 3) {
-                if(!(new Main().report21.record.isEmpty())) {
+                if(!(report21.record.isEmpty())) {
                     new Main().reconciliationOfReports();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 4) {
-                if (!(new Main().report21.record.isEmpty())) {
+                if (!(report21.record.isEmpty())) {
                     new Main().print01();
                     new Main().print02();
                     new Main().print03();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 5) {
-                if (!(new Main().report21.record.isEmpty())) {
+                if (!(report21.record.isEmpty())) {
                     new Main().printAll2021();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 0) {
@@ -149,6 +147,18 @@ public class Main {
         int average = 0;
         average = (report21m01.sumExpense() + report21m02.sumExpense() + report21m03.sumExpense())/3;
         return average;
+    }
+
+    public void yearRead(){
+        report21.yearReport("resources/y.2021.csv");
+        System.out.println("Годовой отчет загружен");
+    }
+
+    public void monthRead(){
+        report21m01.monthlyReport("resources/m.202101.csv");
+        report21m02.monthlyReport("resources/m.202102.csv");
+        report21m03.monthlyReport("resources/m.202103.csv");
+        System.out.println("Месячные отчеты загружены");
     }
 
 }
