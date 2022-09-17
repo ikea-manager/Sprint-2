@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -22,9 +24,7 @@ public class Main {
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 4) {
                 if (!(report21.record.isEmpty())) {
-                    new Main().print01();
-                    new Main().print02();
-                    new Main().print03();
+                    new Main().printM();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 5) {
                 if (!(report21.record.isEmpty())) {
@@ -56,37 +56,31 @@ public class Main {
     public void reconciliationOfReports() {
         for (int i = 0; i < report21.record.size(); i++) {
             if (report21.record.get(i).Expense) {
-                if (report21.record.get(i).month == 1) {
-                    if (report21.record.get(i).amount == report21m01.sumExpense()) {
+                if ((report21.record.get(i).month == 1)&&(report21.record.get(i).amount == report21m01.sumExpense())) {
                         System.out.println("Сверка расходов за январь месяц прошла успешно");
                     } else System.out.println("Сверка расходов за январь месяц не прошла");
-                }
-                if (report21.record.get(i).month == 2) {
-                    if (report21.record.get(i).amount == report21m02.sumExpense()) {
+
+                if ((report21.record.get(i).month == 2)&&(report21.record.get(i).amount == report21m02.sumExpense())) {
                         System.out.println("Сверка расходов за февраль месяц прошла успешно");
                     } else System.out.println("Сверка расходов за февраль месяц не прошла");
-                }
-                if (report21.record.get(i).month == 3) {
-                    if (report21.record.get(i).amount == report21m03.sumExpense()) {
-                        System.out.println("Сверка расходов за март месяц прошла успешно");
-                    } else System.out.println("Сверка расходов за март месяц не прошла");
-                }
+
+                if ((report21.record.get(i).month == 3)&&(report21.record.get(i).amount == report21m03.sumExpense())) {
+                    System.out.println("Сверка расходов за март месяц прошла успешно");
+                }else System.out.println("Сверка расходов за март месяц не прошла");
+
             } else {
-                if (report21.record.get(i).month == 1) {
-                    if (report21.record.get(i).amount == report21m01.sumNonExpense()) {
+                if ((report21.record.get(i).month == 1)&&(report21.record.get(i).amount == report21m01.sumNonExpense())) {
                         System.out.println("Сверка доходов за январь месяц прошла успешно");
                     } else System.out.println("Сверка доходов за январь месяц не прошла");
-                }
-                if (report21.record.get(i).month == 2) {
-                    if (report21.record.get(i).amount == report21m02.sumNonExpense()) {
+
+                if ((report21.record.get(i).month == 2)&&(report21.record.get(i).amount == report21m02.sumNonExpense())) {
                         System.out.println("Сверка доходов за февраль месяц прошла успешно");
                     } else System.out.println("Сверка доходов за февраль месяц не прошла");
-                }
-                if (report21.record.get(i).month == 3) {
-                    if (report21.record.get(i).amount == report21m03.sumNonExpense()) {
+
+                if ((report21.record.get(i).month == 3)&&(report21.record.get(i).amount == report21m03.sumNonExpense())) {
                         System.out.println("Сверка доходов за март месяц прошла успешно");
                     } else System.out.println("Сверка доходов за март месяц не прошла");
-                }
+
             }
 
         }
@@ -108,7 +102,23 @@ public class Main {
 
     }
 
-    public void print01() {
+    public void printM(){
+        HashMap<String, MonthlyReport> month = new HashMap<>();
+        month.put("Январь", report21m01);
+        month.put("Февраль", report21m02);
+        month.put("Март", report21m03);
+        for (String key : month.keySet()) {
+            System.out.println(key);
+            for (int i = 0; i < month.get(key).records.size(); i++) {
+                if (month.get(key).findMax() == (month.get(key).records.get(i).quantity * month.get(key).records.get(i).sumOfOne)) {
+                    System.out.println("Самый прибыльный товар " + month.get(key).records.get(i).itemName);
+                    System.out.println("С доходом равным " + month.get(key).findMax());
+                }
+            }
+        }
+
+    }
+    /*public void print01() {
         System.out.println("Январь");
         for (int i = 0; i < report21m01.records.size(); i++) {
             if (report21m01.findMax() == (report21m01.records.get(i).quantity * report21m01.records.get(i).sumOfOne)) {
@@ -136,7 +146,7 @@ public class Main {
                 System.out.println("С доходом равным " + report21m03.findMax());
             }
         }
-    }
+    }*/
 
     int averagePlus(){
         int average = 0;
