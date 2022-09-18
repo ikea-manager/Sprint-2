@@ -1,11 +1,11 @@
 public class YearlyLineRecord {
     public int month;
     public int amount;
-    public boolean Expense;
+    public boolean isItExpense;
 
-    public YearlyLineRecord(int month, int amount, boolean Expense) {
+    public YearlyLineRecord(int month, int amount, boolean isItExpense) {
         this.month = month;
         this.amount = amount;
-        this.Expense = Expense;
+        this.isItExpense = isItExpense;
     }
 }

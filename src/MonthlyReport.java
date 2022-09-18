@@ -61,10 +61,8 @@ public class MonthlyReport {
         public int findMax () {
             int maxExpense = 0;
             for (int i = 0; i < records.size(); i++) {
-                if (!(records.get(i).isExpense)) {
-                    if ((records.get(i).quantity * records.get(i).sumOfOne) > maxExpense){
+                if (!(records.get(i).isExpense)&&((records.get(i).quantity * records.get(i).sumOfOne) > maxExpense)) {
                         maxExpense = records.get(i).quantity * records.get(i).sumOfOne;
-                    }
                 }
             }
             return maxExpense;
