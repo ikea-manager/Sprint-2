@@ -23,7 +23,7 @@ public class Main {
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 4) {
                 if (!(report21.recordYear.isEmpty())) {
-                    new Main().printM();
+                    new Main().printMonth();
                 } else System.out.println("Считайте сначала отчеты");
             } else if (command == 5) {
                 if (!(report21.recordYear.isEmpty())) {
@@ -54,6 +54,7 @@ public class Main {
     }
     public void reconciliationOfReports() {
         for (int i = 0; i < report21.recordYear.size(); i++) {
+
             if (report21.recordYear.get(i).isItExpense) {
                 if ((report21.recordYear.get(i).month == 1)&&(report21.recordYear.get(i).amount == report21m01.sumExpense())) {
                         System.out.println("Сверка расходов за январь месяц прошла успешно");
@@ -101,7 +102,7 @@ public class Main {
 
     }
 
-    public void printM(){
+    public void printMonth(){
         HashMap<String, MonthlyReport> month = new HashMap<>();
         month.put("Январь", report21m01);
         month.put("Февраль", report21m02);
